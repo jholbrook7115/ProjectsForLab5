@@ -1,10 +1,9 @@
-// Generated from edu\temple\cis\c4324\micro\Micro.g4 by ANTLR 4.5
+// Generated from edu\temple\cis\c4324\micro\Micro.g4 by ANTLR 4.5.1
 
 package edu.temple.cis.c4324.micro;
 
 
 import org.antlr.v4.runtime.ParserRuleContext;
-import org.antlr.v4.runtime.misc.NotNull;
 import org.antlr.v4.runtime.tree.ErrorNode;
 import org.antlr.v4.runtime.tree.TerminalNode;
 
@@ -103,6 +102,18 @@ public class MicroBaseListener implements MicroListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterDountil_stmt(MicroParser.Dountil_stmtContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitDountil_stmt(MicroParser.Dountil_stmtContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterRead_statement(MicroParser.Read_statementContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -175,6 +186,18 @@ public class MicroBaseListener implements MicroListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterElse_if_part(MicroParser.Else_if_partContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitElse_if_part(MicroParser.Else_if_partContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterElse_part(MicroParser.Else_partContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -182,6 +205,18 @@ public class MicroBaseListener implements MicroListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitElse_part(MicroParser.Else_partContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterDo_until_statement(MicroParser.Do_until_statementContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitDo_until_statement(MicroParser.Do_until_statementContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -230,6 +265,18 @@ public class MicroBaseListener implements MicroListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitUnaryop(MicroParser.UnaryopContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterLogicalop(MicroParser.LogicalopContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitLogicalop(MicroParser.LogicalopContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

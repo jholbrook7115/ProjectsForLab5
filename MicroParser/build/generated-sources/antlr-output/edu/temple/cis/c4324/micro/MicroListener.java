@@ -1,8 +1,7 @@
-// Generated from edu\temple\cis\c4324\micro\Micro.g4 by ANTLR 4.5
+// Generated from edu\temple\cis\c4324\micro\Micro.g4 by ANTLR 4.5.1
 
 package edu.temple.cis.c4324.micro;
 
-import org.antlr.v4.runtime.misc.NotNull;
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
 /**
@@ -91,6 +90,18 @@ public interface MicroListener extends ParseTreeListener {
 	 */
 	void exitWhile_stmt(MicroParser.While_stmtContext ctx);
 	/**
+	 * Enter a parse tree produced by the {@code dountil_stmt}
+	 * labeled alternative in {@link MicroParser#statement}.
+	 * @param ctx the parse tree
+	 */
+	void enterDountil_stmt(MicroParser.Dountil_stmtContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code dountil_stmt}
+	 * labeled alternative in {@link MicroParser#statement}.
+	 * @param ctx the parse tree
+	 */
+	void exitDountil_stmt(MicroParser.Dountil_stmtContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link MicroParser#read_statement}.
 	 * @param ctx the parse tree
 	 */
@@ -151,6 +162,16 @@ public interface MicroListener extends ParseTreeListener {
 	 */
 	void exitIf_statement(MicroParser.If_statementContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link MicroParser#else_if_part}.
+	 * @param ctx the parse tree
+	 */
+	void enterElse_if_part(MicroParser.Else_if_partContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link MicroParser#else_if_part}.
+	 * @param ctx the parse tree
+	 */
+	void exitElse_if_part(MicroParser.Else_if_partContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link MicroParser#else_part}.
 	 * @param ctx the parse tree
 	 */
@@ -160,6 +181,16 @@ public interface MicroListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitElse_part(MicroParser.Else_partContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link MicroParser#do_until_statement}.
+	 * @param ctx the parse tree
+	 */
+	void enterDo_until_statement(MicroParser.Do_until_statementContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link MicroParser#do_until_statement}.
+	 * @param ctx the parse tree
+	 */
+	void exitDo_until_statement(MicroParser.Do_until_statementContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link MicroParser#while_statement}.
 	 * @param ctx the parse tree
@@ -206,6 +237,18 @@ public interface MicroListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitUnaryop(MicroParser.UnaryopContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code logicalop}
+	 * labeled alternative in {@link MicroParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void enterLogicalop(MicroParser.LogicalopContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code logicalop}
+	 * labeled alternative in {@link MicroParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void exitLogicalop(MicroParser.LogicalopContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code id}
 	 * labeled alternative in {@link MicroParser#expr}.
