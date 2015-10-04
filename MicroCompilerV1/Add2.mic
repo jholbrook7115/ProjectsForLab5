@@ -1,0 +1,6 @@
+program Add2
+    begin
+        read(x, y);
+        z := x + y;
+        write(z);
+    end;

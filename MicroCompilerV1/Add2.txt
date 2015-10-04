@@ -1,0 +1,104 @@
+Classfile /E:/CIS4324/MicroCompilerV1/Add2.class
+  Last modified Apr 8, 2015; size 669 bytes
+  MD5 checksum cb1eb509374110d933571402d0299fb2
+  Compiled from "Add2.mic"
+public class Add2
+  minor version: 3
+  major version: 45
+  flags: ACC_PUBLIC, ACC_SUPER
+Constant pool:
+   #1 = Utf8               SourceFile
+   #2 = Utf8               Add2.mic
+   #3 = Utf8               Add2
+   #4 = Class              #3             // Add2
+   #5 = Utf8               java/lang/Object
+   #6 = Class              #5             // java/lang/Object
+   #7 = Utf8               <init>
+   #8 = Utf8               ()V
+   #9 = NameAndType        #7:#8          // "<init>":()V
+  #10 = Methodref          #6.#9          // java/lang/Object."<init>":()V
+  #11 = Utf8               this
+  #12 = Utf8               LAdd2;
+  #13 = Utf8               LocalVariableTable
+  #14 = Utf8               Code
+  #15 = Utf8               java/util/Scanner
+  #16 = Class              #15            // java/util/Scanner
+  #17 = Utf8               java/lang/System
+  #18 = Class              #17            // java/lang/System
+  #19 = Utf8               in
+  #20 = Utf8               Ljava/io/InputStream;
+  #21 = NameAndType        #19:#20        // in:Ljava/io/InputStream;
+  #22 = Fieldref           #18.#21        // java/lang/System.in:Ljava/io/InputStream;
+  #23 = Utf8               (Ljava/io/InputStream;)V
+  #24 = NameAndType        #7:#23         // "<init>":(Ljava/io/InputStream;)V
+  #25 = Methodref          #16.#24        // java/util/Scanner."<init>":(Ljava/io/InputStream;)V
+  #26 = Utf8               nextInt
+  #27 = Utf8               ()I
+  #28 = NameAndType        #26:#27        // nextInt:()I
+  #29 = Methodref          #16.#28        // java/util/Scanner.nextInt:()I
+  #30 = Utf8               out
+  #31 = Utf8               Ljava/io/PrintStream;
+  #32 = NameAndType        #30:#31        // out:Ljava/io/PrintStream;
+  #33 = Fieldref           #18.#32        // java/lang/System.out:Ljava/io/PrintStream;
+  #34 = Utf8               println
+  #35 = Utf8               (I)V
+  #36 = NameAndType        #34:#35        // println:(I)V
+  #37 = Utf8               java/io/PrintStream
+  #38 = Class              #37            // java/io/PrintStream
+  #39 = Methodref          #38.#36        // java/io/PrintStream.println:(I)V
+  #40 = Utf8               main
+  #41 = Utf8               ([Ljava/lang/String;)V
+  #42 = Utf8               args
+  #43 = Utf8               [Ljava/lang/String;
+  #44 = Utf8               $in
+  #45 = Utf8               Ljava/util/Scanner;
+  #46 = Utf8               x
+  #47 = Utf8               I
+  #48 = Utf8               y
+  #49 = Utf8               z
+{
+  public Add2();
+    descriptor: ()V
+    flags: ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #10                 // Method java/lang/Object."<init>":()V
+         4: return
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       5     0  this   LAdd2;
+
+  public static void main(java.lang.String[]);
+    descriptor: ([Ljava/lang/String;)V
+    flags: ACC_PUBLIC, ACC_STATIC
+    Code:
+      stack=3, locals=5, args_size=1
+         0: new           #16                 // class java/util/Scanner
+         3: dup
+         4: getstatic     #22                 // Field java/lang/System.in:Ljava/io/InputStream;
+         7: invokespecial #25                 // Method java/util/Scanner."<init>":(Ljava/io/InputStream;)V
+        10: astore_1
+        11: aload_1
+        12: invokevirtual #29                 // Method java/util/Scanner.nextInt:()I
+        15: istore_2
+        16: aload_1
+        17: invokevirtual #29                 // Method java/util/Scanner.nextInt:()I
+        20: istore_3
+        21: iload_2
+        22: iload_3
+        23: iadd
+        24: istore        4
+        26: getstatic     #33                 // Field java/lang/System.out:Ljava/io/PrintStream;
+        29: iload         4
+        31: invokevirtual #39                 // Method java/io/PrintStream.println:(I)V
+        34: return
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      35     0  args   [Ljava/lang/String;
+            0      35     1   $in   Ljava/util/Scanner;
+            0      35     2     x   I
+            0      35     3     y   I
+            0      35     4     z   I
+}
+SourceFile: "Add2.mic"

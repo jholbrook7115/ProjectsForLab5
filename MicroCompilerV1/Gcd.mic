@@ -1,0 +1,11 @@
+program Gcd
+    begin
+        read(x, y);
+        while y != 0
+            do
+                t := x % y;
+                x := y;
+                y := t;
+            od;
+        write(x);
+    end;

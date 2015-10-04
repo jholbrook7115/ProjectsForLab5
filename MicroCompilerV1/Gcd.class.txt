@@ -1,0 +1,102 @@
+Classfile /K:/CIS4324F15/LabAssignments/ProjectsForLab5/MicroCompilerV1/Gcd.class
+  Last modified Sep 29, 2015; size 609 bytes
+  MD5 checksum 8bc12e794d85f75581c8d37cead45176
+  Compiled from "Gcd.mic"
+public class Gcd
+  minor version: 3
+  major version: 45
+  flags: ACC_PUBLIC, ACC_SUPER
+Constant pool:
+   #1 = Utf8               SourceFile
+   #2 = Utf8               Gcd.mic
+   #3 = Utf8               Gcd
+   #4 = Class              #3             // Gcd
+   #5 = Utf8               java/lang/Object
+   #6 = Class              #5             // java/lang/Object
+   #7 = Utf8               java/util/Scanner
+   #8 = Class              #7             // java/util/Scanner
+   #9 = Utf8               java/lang/System
+  #10 = Class              #9             // java/lang/System
+  #11 = Utf8               in
+  #12 = Utf8               Ljava/io/InputStream;
+  #13 = NameAndType        #11:#12        // in:Ljava/io/InputStream;
+  #14 = Fieldref           #10.#13        // java/lang/System.in:Ljava/io/InputStream;
+  #15 = Utf8               <init>
+  #16 = Utf8               (Ljava/io/InputStream;)V
+  #17 = NameAndType        #15:#16        // "<init>":(Ljava/io/InputStream;)V
+  #18 = Methodref          #8.#17         // java/util/Scanner."<init>":(Ljava/io/InputStream;)V
+  #19 = Utf8               nextInt
+  #20 = Utf8               ()I
+  #21 = NameAndType        #19:#20        // nextInt:()I
+  #22 = Methodref          #8.#21         // java/util/Scanner.nextInt:()I
+  #23 = Utf8               out
+  #24 = Utf8               Ljava/io/PrintStream;
+  #25 = NameAndType        #23:#24        // out:Ljava/io/PrintStream;
+  #26 = Fieldref           #10.#25        // java/lang/System.out:Ljava/io/PrintStream;
+  #27 = Utf8               println
+  #28 = Utf8               (I)V
+  #29 = NameAndType        #27:#28        // println:(I)V
+  #30 = Utf8               java/io/PrintStream
+  #31 = Class              #30            // java/io/PrintStream
+  #32 = Methodref          #31.#29        // java/io/PrintStream.println:(I)V
+  #33 = Utf8               main
+  #34 = Utf8               ([Ljava/lang/String;)V
+  #35 = Utf8               args
+  #36 = Utf8               [Ljava/lang/String;
+  #37 = Utf8               $in
+  #38 = Utf8               Ljava/util/Scanner;
+  #39 = Utf8               x
+  #40 = Utf8               I
+  #41 = Utf8               y
+  #42 = Utf8               t
+  #43 = Utf8               LocalVariableTable
+  #44 = Utf8               Code
+{
+  public static void main(java.lang.String[]);
+    descriptor: ([Ljava/lang/String;)V
+    flags: ACC_PUBLIC, ACC_STATIC
+    Code:
+      stack=3, locals=5, args_size=1
+         0: new           #8                  // class java/util/Scanner
+         3: dup
+         4: getstatic     #14                 // Field java/lang/System.in:Ljava/io/InputStream;
+         7: invokespecial #18                 // Method java/util/Scanner."<init>":(Ljava/io/InputStream;)V
+        10: astore_1
+        11: aload_1
+        12: invokevirtual #22                 // Method java/util/Scanner.nextInt:()I
+        15: istore_2
+        16: aload_1
+        17: invokevirtual #22                 // Method java/util/Scanner.nextInt:()I
+        20: istore_3
+        21: nop
+        22: iload_3
+        23: iconst_0
+        24: if_icmpne     31
+        27: iconst_0
+        28: goto          32
+        31: iconst_1
+        32: nop
+        33: ifeq          49
+        36: iload_2
+        37: iload_3
+        38: irem
+        39: istore        4
+        41: iload_3
+        42: istore_2
+        43: iload         4
+        45: istore_3
+        46: goto          21
+        49: nop
+        50: getstatic     #26                 // Field java/lang/System.out:Ljava/io/PrintStream;
+        53: iload_2
+        54: invokevirtual #32                 // Method java/io/PrintStream.println:(I)V
+        57: return
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      58     0  args   [Ljava/lang/String;
+            0      58     1   $in   Ljava/util/Scanner;
+            0      58     2     x   I
+            0      58     3     y   I
+            0      58     4     t   I
+}
+SourceFile: "Gcd.mic"
