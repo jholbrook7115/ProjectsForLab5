@@ -90,17 +90,17 @@ public interface MicroListener extends ParseTreeListener {
 	 */
 	void exitWhile_stmt(MicroParser.While_stmtContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code dountil_stmt}
+	 * Enter a parse tree produced by the {@code do_until_stmt}
 	 * labeled alternative in {@link MicroParser#statement}.
 	 * @param ctx the parse tree
 	 */
-	void enterDountil_stmt(MicroParser.Dountil_stmtContext ctx);
+	void enterDo_until_stmt(MicroParser.Do_until_stmtContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code dountil_stmt}
+	 * Exit a parse tree produced by the {@code do_until_stmt}
 	 * labeled alternative in {@link MicroParser#statement}.
 	 * @param ctx the parse tree
 	 */
-	void exitDountil_stmt(MicroParser.Dountil_stmtContext ctx);
+	void exitDo_until_stmt(MicroParser.Do_until_stmtContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link MicroParser#read_statement}.
 	 * @param ctx the parse tree

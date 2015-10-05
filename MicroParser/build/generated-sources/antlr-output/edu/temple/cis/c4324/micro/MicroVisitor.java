@@ -60,12 +60,12 @@ public interface MicroVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitWhile_stmt(MicroParser.While_stmtContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code dountil_stmt}
+	 * Visit a parse tree produced by the {@code do_until_stmt}
 	 * labeled alternative in {@link MicroParser#statement}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitDountil_stmt(MicroParser.Dountil_stmtContext ctx);
+	T visitDo_until_stmt(MicroParser.Do_until_stmtContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link MicroParser#read_statement}.
 	 * @param ctx the parse tree

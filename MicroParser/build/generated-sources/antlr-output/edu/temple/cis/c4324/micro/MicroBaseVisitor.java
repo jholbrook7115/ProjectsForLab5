@@ -68,7 +68,7 @@ public class MicroBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements 
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitDountil_stmt(MicroParser.Dountil_stmtContext ctx) { return visitChildren(ctx); }
+	@Override public T visitDo_until_stmt(MicroParser.Do_until_stmtContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
