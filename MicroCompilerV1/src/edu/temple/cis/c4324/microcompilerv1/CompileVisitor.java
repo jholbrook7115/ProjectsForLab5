@@ -3,10 +3,13 @@ package edu.temple.cis.c4324.microcompilerv1;
 import edu.temple.cis.c4324.codegen.CodeGenerator;
 import edu.temple.cis.c4324.codegen.InstructionList;
 import edu.temple.cis.c4324.micro.MicroBaseVisitor;
+import edu.temple.cis.c4324.micro.MicroParser;
 import edu.temple.cis.c4324.micro.MicroParser.ArithopContext;
 import edu.temple.cis.c4324.micro.MicroParser.Assignment_statementContext;
 import edu.temple.cis.c4324.micro.MicroParser.CompopContext;
+import edu.temple.cis.c4324.micro.MicroParser.Do_until_statementContext;
 import edu.temple.cis.c4324.micro.MicroParser.Else_partContext;
+import edu.temple.cis.c4324.micro.MicroParser.Else_if_partContext;
 import edu.temple.cis.c4324.micro.MicroParser.IdContext;
 import edu.temple.cis.c4324.micro.MicroParser.If_statementContext;
 import edu.temple.cis.c4324.micro.MicroParser.IntContext;
@@ -17,6 +20,7 @@ import edu.temple.cis.c4324.micro.MicroParser.Statement_listContext;
 import edu.temple.cis.c4324.micro.MicroParser.UnaryopContext;
 import edu.temple.cis.c4324.micro.MicroParser.While_statementContext;
 import edu.temple.cis.c4324.micro.MicroParser.Write_statementContext;
+import java.util.List;
 import org.apache.bcel.generic.InstructionHandle;
 import org.apache.bcel.generic.MethodGen;
 
@@ -192,7 +196,24 @@ public class CompileVisitor extends MicroBaseVisitor<InstructionList> {
         InstructionHandle falseTarget = il2.addInstruction("nop");
         il.createIf("==0", "int", falseTarget);
         il.append(visit(ctx.statement_list()));
-        Else_partContext elsePart = ctx.else_part();
+        Else_partContext elsePart = ctx.else_part(); 
+        
+        List<Else_if_partContext> elifPart = ctx.else_if_part();
+        if(!elifPart.isEmpty()){
+            il.createGoTo(theEnd);
+            for(Else_if_partContext elif_stmt : elifPart){
+                il.append(il2);
+                il.append(visit(elif_stmt.expr()));
+                if(elifPart.get(elifPart.size() -1) != elifPart || ctx.else_if_part() != null ){
+                    il2 = cg.newInstructionList();
+                    falseTarget = il2.addInstruction("nop");
+                }
+                il.createIf("==0", "int", falseTarget);
+                il2.append(visit(elif_stmt.statement_list()));
+                il.createGoTo(theEnd);
+            }
+        }
+        
         if (ctx.else_part() != null) {
             il.createGoTo(theEnd);
         }
@@ -205,6 +226,29 @@ public class CompileVisitor extends MicroBaseVisitor<InstructionList> {
         } else {
             il1.dispose();
         }
+        return il;
+    }
+    
+    public InstructionList do_until_statement(Do_until_statementContext ctx){
+        InstructionList il = cg.newInstructionList();
+        InstructionHandle topOfLoop = il.addInstruction("nop");
+        InstructionHandle endOfLoop = il.createGoTo(topOfLoop);
+        InstructionHandle outOfLoop = il.addInstruction("nop");
+        
+        il.insert(topOfLoop, visit(ctx.statement_list()));
+        //il.append()
+        
+        
+        InstructionList ifStatement = cg.newInstructionList();
+        
+        
+        ifStatement.createIf("!=0", "int", outOfLoop);
+        
+        
+        il.append(topOfLoop, ifStatement);
+        il.append(topOfLoop, visit(ctx.expr()));
+        il.insert(endOfLoop, visit(ctx.statement_list()));
+        
         return il;
     }
 
