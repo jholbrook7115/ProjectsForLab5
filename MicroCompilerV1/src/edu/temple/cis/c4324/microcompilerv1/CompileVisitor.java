@@ -234,10 +234,10 @@ public class CompileVisitor extends MicroBaseVisitor<InstructionList> {
         InstructionList il = cg.newInstructionList();
         InstructionList il2 = cg.newInstructionList();
         InstructionHandle topOfLoop = il.addInstruction("nop");
-        InstructionHandle endOfLoop = il.createGoTo(topOfLoop);
+        //InstructionHandle endOfLoop = il.createGoTo(topOfLoop);
         InstructionHandle outOfLoop = il2.addInstruction("nop");
         InstructionList ifStatement = cg.newInstructionList();
-        ifStatement.createIf("==0", "int", outOfLoop);
+        ifStatement.createIf("!=0", "int", outOfLoop);
         
         il.append(visit(ctx.statement_list()));
         il.append(visit(ctx.expr()));
