@@ -229,26 +229,22 @@ public class CompileVisitor extends MicroBaseVisitor<InstructionList> {
         return il;
     }
     
-    public InstructionList do_until_statement(Do_until_statementContext ctx){
+    @Override
+    public InstructionList visitDo_until_statement(Do_until_statementContext ctx){
         InstructionList il = cg.newInstructionList();
+        InstructionList il2 = cg.newInstructionList();
         InstructionHandle topOfLoop = il.addInstruction("nop");
         InstructionHandle endOfLoop = il.createGoTo(topOfLoop);
-        InstructionHandle outOfLoop = il.addInstruction("nop");
-        
-        il.insert(topOfLoop, visit(ctx.statement_list()));
-        //il.append()
-        
-        
+        InstructionHandle outOfLoop = il2.addInstruction("nop");
         InstructionList ifStatement = cg.newInstructionList();
+        ifStatement.createIf("==0", "int", outOfLoop);
         
+        il.append(visit(ctx.statement_list()));
+        il.append(visit(ctx.expr()));
+        il.append(ifStatement);
+        il.createGoTo(topOfLoop);
         
-        ifStatement.createIf("!=0", "int", outOfLoop);
-        
-        
-        il.append(topOfLoop, ifStatement);
-        il.append(topOfLoop, visit(ctx.expr()));
-        il.insert(endOfLoop, visit(ctx.statement_list()));
-        
+        il.append(il2);
         return il;
     }
 
