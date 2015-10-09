@@ -4,24 +4,33 @@ program IfTest begin
     z := 3;
     if x > y then
         x := 4;
+		write(x);
     fi;
     if x < y then
         y := 4;
+		write(y);
     else
         z := 4;
+		write(z);
     fi;
     if y > z then
         x := 1;
+		write(x);
     elif z < x then
         y := 9;
+		write(y);
     fi;
     if z = x then
         y := 99;
+		write(y);
     elif x = y then
         z := 100;
+		write(z);
     elif y = z then
         x := 80;
+		write(x);
     else
         y := 1000;
+		write(y);
     fi;
 end;

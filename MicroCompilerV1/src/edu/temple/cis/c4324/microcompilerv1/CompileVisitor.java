@@ -209,12 +209,12 @@ public class CompileVisitor extends MicroBaseVisitor<InstructionList> {
                     falseTarget = il2.addInstruction("nop");
                 }
                 il.createIf("==0", "int", falseTarget);
-                il2.append(visit(elif_stmt.statement_list()));
+                il.append(visit(elif_stmt.statement_list()));
                 il.createGoTo(theEnd);
             }
         }
         
-        if (ctx.else_part() != null) {
+        if (ctx.else_part() != null && elifPart.isEmpty()) {
             il.createGoTo(theEnd);
         }
         il.append(il2);
