@@ -13,6 +13,7 @@ import edu.temple.cis.c4324.micro.MicroParser.Else_if_partContext;
 import edu.temple.cis.c4324.micro.MicroParser.IdContext;
 import edu.temple.cis.c4324.micro.MicroParser.If_statementContext;
 import edu.temple.cis.c4324.micro.MicroParser.IntContext;
+import edu.temple.cis.c4324.micro.MicroParser.LogicalopContext;
 import edu.temple.cis.c4324.micro.MicroParser.PowopContext;
 import edu.temple.cis.c4324.micro.MicroParser.ProgramContext;
 import edu.temple.cis.c4324.micro.MicroParser.Read_statementContext;
@@ -248,4 +249,21 @@ public class CompileVisitor extends MicroBaseVisitor<InstructionList> {
         return il;
     }
 
+    //  Grammar:    expr:   expr op=('\u2227'|'\u2228') expr     #logicalop
+    //  remember MUST BE DONE WITH SHORT CURCUITING!!!!
+    //  \u2227 is the logical AND
+    //  \u2228 is the logical OR
+    public InstructionList visitLogicalOp(LogicalopContext ctx){
+        InstructionList il = cg.newInstructionList();
+        InstructionList il2 = cg.newInstructionList();
+        
+        InstructionHandle outOfComp = il2.addInstruction("nop");
+         if(ctx.getText().equals("\u2227")){
+             il.createIf("!=0", "int", outOfComp);
+             il.addInstruction("const", "0");
+         }
+        
+        return il;
+    }
+    
 }
