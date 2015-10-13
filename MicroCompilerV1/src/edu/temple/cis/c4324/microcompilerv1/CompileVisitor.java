@@ -256,21 +256,25 @@ public class CompileVisitor extends MicroBaseVisitor<InstructionList> {
     public InstructionList visitLogicalOp(LogicalopContext ctx){
         InstructionList il = cg.newInstructionList();
         InstructionList il2 = cg.newInstructionList();
-        
+
         InstructionHandle outOfComp = il2.addInstruction("nop");
-         if(ctx.getText().equals("\u2227")){
-             il.createIf("==0", "int", outOfComp);
-             il.addInstruction("const", "0");
-         }
-         else if(ctx.getText().contains("\u2228")){
-             il.createIf("!=0", "int", outOfComp);
-             il.addInstruction("const", "1");
-         }
-        
-         il.addInstruction("pop");
-         il.append(visit(ctx.expr(1)));
-         il.append(il2);
+
+        il.append(visit(ctx.expr(0)));
+        il.addInstruction("dup");
+        switch (ctx.op.getText().charAt(0)) {
+            case '\u2227':
+                il.createIf("==0", "int", outOfComp);
+                //il.addInstruction("const", "0");
+                break;
+            case '\u2228':
+                il.createIf("!=0", "int", outOfComp);
+                //il.addInstruction("const", "1");
+                break;
+        }
+        il.addInstruction("pop");
+        il.append(visit(ctx.expr(1)));
+        il.append(il2);
         return il;
     }
-    
+
 }
