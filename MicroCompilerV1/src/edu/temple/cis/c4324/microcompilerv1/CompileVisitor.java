@@ -259,10 +259,17 @@ public class CompileVisitor extends MicroBaseVisitor<InstructionList> {
         
         InstructionHandle outOfComp = il2.addInstruction("nop");
          if(ctx.getText().equals("\u2227")){
-             il.createIf("!=0", "int", outOfComp);
+             il.createIf("==0", "int", outOfComp);
              il.addInstruction("const", "0");
          }
+         else if(ctx.getText().contains("\u2228")){
+             il.createIf("!=0", "int", outOfComp);
+             il.addInstruction("const", "1");
+         }
         
+         il.addInstruction("pop");
+         il.append(visit(ctx.expr(1)));
+         il.append(il2);
         return il;
     }
     
